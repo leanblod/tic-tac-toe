@@ -1,0 +1,316 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin: 0;
+}
+
+input {
+  padding: .3em;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, .5);
+  border-radius: .3em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 60%;
+  height: 60px;
+  aspect-ratio: 1;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+
+  transition: background-color .2s;
+}
+
+.square.clickable:hover {
+  background-color: #ccc;
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1em;
+}
+
+.history {
+  margin-left: 20px;
+}
+
+.history ul {
+  max-height: 100%;
+}
+
+.history li {
+  margin-bottom: 1em;
+}
+
+.history .link {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.history .link>button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #48f;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
+.history .link .preview {
+  position: absolute;
+  padding: .8em;
+  left: 100%;
+  display: none;
+  transition: display .2s;
+  border-radius: 1em;
+  border: 1px solid #888;
+  background-color: #fff;
+}
+
+.history .link .preview .square {
+  height: 30px;
+  font-size: 18px;
+}
+
+.history .link:hover .preview {
+  display: flex;
+}
+
+form.config button[type="submit"] {
+  font-size: 120%;
+  font-weight: 600;
+  color: white;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: fit-content;
+
+  padding: .5em;
+  margin: 1em 0;
+  outline: none;
+  border: none;
+  border-radius: .3em;
+  background-color: #68f;
+}
+
+form.config button[type="submit"]:hover {
+  background-color: #79f;
+}
+
+form.config button[type="submit"]:active {
+  background-color: #46c;
+  color: #dfdfdf;
+}
+
+form.config .common-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+form.config .common-fields .simple-field {
+  margin-right: 1em;
+}
+
+form.config label::after {
+  content: ": ";
+}
+
+.players-form {
+  padding: 1em 0;
+}
+
+.players-form .add {
+  background-color: rgba(128, 128, 128, .2);
+  border: none;
+  outline: transparent;
+  border-radius: .5em;
+  padding: .5em;
+  font-weight: bold;
+  color: #68f;
+}
+
+.players-form .add::after {
+  content: ' +';
+  font-size: 120%;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.players-form .add:hover {
+  background-color: rgba(128, 128, 128, .3);
+}
+
+.players-form .add:active {
+  background-color: rgba(128, 128, 128, .4);
+  color: #46c;
+}
+
+.players-form ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.players-form ul li {
+  margin: .5em .2em;
+}
+
+.players-form ul li .remove {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-weight: bolder;
+  color: red;
+  rotate: 45deg;
+  aspect-ratio: 1;
+  padding: .5em;
+  border-radius: 50%;
+}
+
+.players-form ul li .remove:hover {
+  background-color: rgba(128, 128, 128, .3);
+}
+
+.players-form ul li .remove:disabled {
+  display: none;
+}
+
+.players-form ul li .remove::after {
+  content: '+';
+}
+
+.warning {
+  color: #ca0;
+}
+
+.error {
+  color: #c13;
+}
+
+.players-list ul {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: .5em;
+  align-items: center;
+}
+
+.expansible-panel {
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.expansible-panel>.expansible-frame {
+  display: block;
+  transition: all .5s;
+  padding: .5em 0;
+}
+
+.expansible-frame.collapsed {
+  margin-top: -100%;
+}
+
+.expansion-trigger {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expansion-trigger>.icon {
+  rotate: 90deg;
+  transition: all .5s;
+  padding: .5em
+}
+
+.expansion-trigger>.icon.collapsed {
+  rotate: 270deg;
+}
